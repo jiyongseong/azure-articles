@@ -5,11 +5,11 @@ Microsoft Fabric은 이러한 문제를 근본적으로 해결하기 위해 등�
 
 2. OneLake와 Delta Parquet: 데이터 통합의 핵심
 OneLake는 Fabric의 모든 데이터 서비스가 공유하는 저장소입니다. Delta Parquet 포맷은 데이터의 효율적인 저장과 분석을 가능하게 하며, Azure Data Factory, 데이터 엔지니어링, 데이터 과학, Synapse 기반 데이터 웨어하우스, 실시간 분석 엔진(Kusto, Power BI 등) 모두가 OneLake와 직접 통신할 수 있습니다.
-이로써 데이터 복사와 변환의 부담이 줄고, 데이터 일관성과 신뢰성이 크게 향상됩니다. 모든 데이터는 **Compute Unit**이라는 공통 과금 단위로 관리되어, 비용 관리도 단순화됩니다.
+이로써 데이터 복사와 변환의 부담이 줄고, 데이터 일관성과 신뢰성이 크게 향상됩니다. 모든 데이터는 **Compute Unit** 이라는 공통 과금 단위로 관리되어, 비용 관리도 단순화됩니다.
 
 4. Fabric SQL Database의 주요 특징
 3-1. 서버리스 자동 확장
-Fabric SQL Database는 Azure SQL Database 엔진을 기반으로 하며, **서버리스(Serverless) 모드**로 동작합니다. 서버리스 환경에서는 16~32 vCore 사이에서 자동으로 확장되며, 15분간 비활성 상태가 지속되면 컴퓨트 리소스가 자동으로 중지되어 비용을 절감할 수 있습니다. 저장소는 계속 과금되지만, 사용하지 않는 컴퓨트 비용은 발생하지 않습니다.
+Fabric SQL Database는 Azure SQL Database 엔진을 기반으로 하며, **서버리스(Serverless) 모드** 로 동작합니다. 서버리스 환경에서는 16~32 vCore 사이에서 자동으로 확장되며, 15분간 비활성 상태가 지속되면 컴퓨트 리소스가 자동으로 중지되어 비용을 절감할 수 있습니다. 저장소는 계속 과금되지만, 사용하지 않는 컴퓨트 비용은 발생하지 않습니다.
 
 3-2. 간편한 생성과 관리
 Fabric 포털에서 "Create" 버튼을 클릭하고, "SQL Database"를 선택한 후 이름만 입력하면 데이터베이스가 생성됩니다. API를 사용할 경우에도 3번의 호출이면 완료될 정도로 간편합니다. 생성된 SQL DB는 Microsoft 관리 구독에 생성되므로, 사용자의 Azure 구독에서는 보이지 않습니다.
@@ -18,7 +18,7 @@ Fabric 포털에서 "Create" 버튼을 클릭하고, "SQL Database"를 선택한
 Fabric SQL Database는 자동으로 인덱스를 생성하고 튜닝하며, 고가용성(HA)과 재해 복구(DR), 백업까지 모두 자동으로 처리합니다. 생성된 지역이 ZRS(Zone Redundant Storage)를 지원한다면, 데이터는 여러 데이터센터에 분산 저장되어 장애에도 안전하게 보호됩니다. Fabric의 워크스페이스 역할(관리자, 기여자, 뷰어)은 SQL DB의 권한으로 자동 매핑되어 관리가 매우 편리합니다.
 
 3-4. AI 분석 기능 내장
-SQL Database는 AI 준비 완료(AI Ready) 상태로 제공됩니다. 특히 벡터 검색 기능이 내장되어 있어, 자연어 기반의 검색과 **RAG(Retrieval Augmented Generation)**을 지원합니다. Copilot을 통해 쿼리 작성, 테이블 작업 등도 자연어로 수행할 수 있어, 데이터 분석과 활용이 훨씬 쉬워집니다.
+SQL Database는 AI 준비 완료(AI Ready) 상태로 제공됩니다. 특히 벡터 검색 기능이 내장되어 있어, 자연어 기반의 검색과 **RAG(Retrieval Augmented Generation)** 을 지원합니다. Copilot을 통해 쿼리 작성, 테이블 작업 등도 자연어로 수행할 수 있어, 데이터 분석과 활용이 훨씬 쉬워집니다.
 
 4. HTAP(하이브리드 트랜잭션/분석 처리) 구조와 실시간 분석
 Fabric SQL Database는 HTAP(Hybrid Transactional Analytical Processing) 구조를 지원합니다. 트랜잭션 엔드포인트를 통해 데이터 쓰기 및 운영을 처리하고, Delta Parquet 기반 OneLake와 연결된 분석 엔드포인트를 통해 실시간으로 데이터를 분석할 수 있습니다. 운영과 분석이 분리되지 않고, 실시간으로 데이터가 미러링되어 최신 데이터를 활용할 수 있습니다.
